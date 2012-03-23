@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name           Module machine_name
-// @namespace      Drupal-7.x
+// @name           ModuleName
+// @namespace      http://drupal.org/
 // @include        http://*/admin/modules
 // ==/UserScript==
 
