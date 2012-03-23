@@ -1,6 +1,8 @@
 // ==UserScript==
 // @name           TableCommit
 // @namespace      http://drupalcode.org/
+// @version        1.0.0
+// @updateURL      https://github.com/Logaritmisk/Userscripts/raw/master/TableCommit.user.js
 // @include        http://drupalcode.org/*
 // @require        https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
 // ==/UserScript==

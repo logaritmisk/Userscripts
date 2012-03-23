@@ -1,6 +1,8 @@
 // ==UserScript==
 // @name           ModuleName
 // @namespace      http://drupal.org/
+// @version        1.0.0
+// @updateURL      https://github.com/Logaritmisk/Userscripts/raw/master/ModuleName.user.js
 // @include        http://*/admin/modules
 // ==/UserScript==
 
