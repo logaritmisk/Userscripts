@@ -8,7 +8,16 @@
 // ==/UserScript==
 
 
-function $(callback) {
+var $ = unsafeWindow.jQuery;
+
+
+function require(callback) {
+    if (typeof $ != undefined) {
+        callback();
+
+        return;
+    }
+
     var script = document.createElement("script");
 
     script.setAttribute("src", "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js");
@@ -23,7 +32,7 @@ function $(callback) {
     document.body.appendChild(script);
 }
 
-$(function() {
+require(function() {
 
     $('#system-modules :checkbox').each(function(i, e) {
         var name = $('<div>')
