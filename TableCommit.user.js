@@ -3,35 +3,11 @@
 // @namespace      http://drupalcode.org/
 // @version        1.1.0
 // @updateURL      https://github.com/Logaritmisk/Userscripts/raw/master/TableCommit.user.js
+// @require        http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
 // @include        http://drupalcode.org/*
 // ==/UserScript==
 
-
-var $ = unsafeWindow.jQuery;
-
-
-function require(callback) {
-    if (typeof $ != undefined) {
-        callback();
-
-        return;
-    }
-
-    var script = document.createElement("script");
-
-    script.setAttribute("src", "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js");
-    script.addEventListener('load', function() {
-	var script = document.createElement("script");
-
-	script.textContent = "(" + callback.toString() + ")();";
-
-	document.body.appendChild(script);
-    }, false);
-
-    document.body.appendChild(script);
-}
-
-require(function() {
+(function($) {
 
     var DEFAULT_CSS = {
         'font-size': '9px',
@@ -47,4 +23,4 @@ require(function() {
         $(e).parent().append(commit);
     });
 
-});
+})(jQuery);
