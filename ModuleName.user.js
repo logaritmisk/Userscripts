@@ -22,7 +22,7 @@ function loadZepto(callback) {
 }
 
 loadZepto(function() {
-  $('#system-modules :checkbox').each(function(i, e) {
+  $('#system-modules input[type="checkbox"]').each(function(i, e) {
     var name = $('<div>')
       .addClass('admin-requirements')
       .html(':' + $(e).attr('name').split('][', 3)[1]);
