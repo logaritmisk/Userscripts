@@ -6,12 +6,22 @@
 // @include     */?q=admin/modules
 // @include     */admin/modules
 // @grant       none
-// @require     http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
 // ==/UserScript==
 
+function loadZepto(callback) {
+  var script = document.createElement("script");
 
-(function($) {
+  script.setAttribute("src", "http://zeptojs.com/zepto.min.js");
+  script.addEventListener('load', function() {
+    var script = document.createElement("script");
+    script.textContent = "(" + callback.toString() + ")();";
+    document.body.appendChild(script);
+  }, false);
 
+  document.body.appendChild(script);
+}
+
+loadZepto(function() {
   $('#system-modules :checkbox').each(function(i, e) {
     var name = $('<div>')
       .addClass('admin-requirements')
@@ -21,5 +31,4 @@
       .parent()
       .append(name);
   });
-
-})(jQuery);
+});
