@@ -1,26 +1,36 @@
 // ==UserScript==
 // @name           TableCommit
 // @namespace      http://drupalcode.org/
-// @version        1.1.0
+// @version        1.1.1
 // @updateURL      https://github.com/Logaritmisk/Userscripts/raw/master/TableCommit.user.js
-// @require        http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
 // @include        http://drupalcode.org/*
 // ==/UserScript==
 
-(function($) {
+function loadZepto(callback) {
+  var script = document.createElement("script");
 
-    var DEFAULT_CSS = {
-        'font-size': '9px',
-        'margin-left': '10px',
-        'color': '#aaa',
-    }
+  script.setAttribute("src", "http://zeptojs.com/zepto.min.js");
+  script.addEventListener('load', function() {
+    var script = document.createElement("script");
+    script.textContent = "(" + callback.toString() + ")();";
+    document.body.appendChild(script);
+  }, false);
 
-    $('table.shortlog a.subject').each(function(i, e) {
-        var commit = $('<span>')
-	    .css(DEFAULT_CSS)
-	    .text($(e).attr('href').substr(-40));
+  document.body.appendChild(script);
+}
 
-        $(e).parent().append(commit);
-    });
+loadZepto(function() {
+  var DEFAULT_CSS = {
+    'font-size': '9px',
+    'margin-left': '10px',
+    'color': '#aaa',
+  }
 
-})(jQuery);
+  $('table.shortlog a.subject').each(function(i, e) {
+    var commit = $('<span>')
+      .css(DEFAULT_CSS)
+      .text($(e).attr('href').substr(-40));
+
+    $(e).parent().append(commit);
+  });
+});
