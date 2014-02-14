@@ -13,13 +13,13 @@
 function require(sources, callback) {
     counter = sources.length
     sources.forEach(function(source) {
-        var script = document.createElement("script");
+        var script = document.createElement('script');
 
-        script.setAttribute("src", src);
+        script.setAttribute('src', source);
         script.addEventListener('load', function() {
             if (--counter == 0) {
-                var script = document.createElement("script");
-                script.textContent = "(" + callback.toString() + ")();";
+                var script = document.createElement('script');
+                script.textContent = '(' + callback.toString() + ')();';
                 document.body.appendChild(script);
             }
         }, false);
@@ -30,7 +30,7 @@ function require(sources, callback) {
 
 
 require(['http://zeptojs.com/zepto.min.js', 'http://yandex.st/highlightjs/8.0/highlight.min.js'], function() {
-    $('head').append('<link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/github.min.css">');
+    $('head').append('<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/github.min.css">');
 
     $('pre').each(function(i, e) {
         hljs.highlightBlock(e);
